@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 
 {% block content %}
     {% if form.errors %}
@@ -11,40 +12,85 @@
     <p>Your account doesn't have access to this page. To proceed,
     please login with an account that has access.</p>
     {% else %}
-    <p>Please login to see this page.</p>
+    <p></p>
     {% endif %}
 {% endif %}
+
+
  <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+     <div class="row">
+            <div class="col-lg-9 " >
+                <div class="carousel js-flickity">
+  <div class="carousel-cell ">
+    <img src="{% static 'img/1.jpg' %}" alt="orange tree" />
+  </div>
+  <div class="carousel-cell ">
+    <img src="{% static 'img/2.jpg' %}" alt="One World Trade" />
+  </div>
+  <div class="carousel-cell">
+    <img src="{% static 'img/3.jpg' %}" alt="drizzle" />
+  </div>
+  <div class="carousel-cell">
+    <img src="{% static 'img/1.jpg' %}" alt="cat nose" />
+  </div>
+  <div class="carousel-cell">
+    <img src="{% static 'img/2.jpg' %}" alt="contrail" />
+  </div>
+  <div class="carousel-cell">
+    <img src="{% static 'img/3.jpg' %}" alt="golden hour" />
+  </div>
+  <div class="carousel-cell">
+    <img src="{% static 'img/IIT-BHU-1.jpg' %}" alt="flight formation" />
+  </div>
+</div>
+
+            </div>
+
+
+
+
+
+            <div class="col-lg-3 ">
+                <div class="login-panel panel panel-default" >
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<p class="bs-component">
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-</p>
-<p class="bs-component">
-<center><input class="btn btn-success btn-sm" type="submit" value="login" /></center>
-</p>
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-</div>
-</div>
-</div>
-</div>
+                        <form method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+<div class="row">
+									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span>
+												{{ form.username  }}
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-lock"></i>
+												</span>
+												{{ form.password }}
+											</div>
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+										</div>
+									</div>
+								</div>
+
+
+
+
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+     </div>
 </div>
 
 {% endblock %}

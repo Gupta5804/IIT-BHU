@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block apps %}
+        <div class="container" style="width: 873px">
+        <h2 class="well">Registration Form</h2>
+          <form action="." method="POST" class="padding">
+            {% csrf_token %} {{ noodle_form.as_p }}
+            <div class="divider"></div>
+            {{ formset.management_form }}
+                {{ formset.as_p }}
+            <button type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></button>
+            <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
+
+        </form>
+        </div>
+
+{% endblock %}
